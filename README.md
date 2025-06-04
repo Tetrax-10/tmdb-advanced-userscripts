@@ -6,6 +6,8 @@ A collection of advanced userscripts for [themoviedb.org](https://www.themoviedb
 
 Tired of going through hundreds of posters, backdrops, logos, or profile images to find duplicates? This tool makes it easy.
 
+https://github.com/user-attachments/assets/73802022-4221-4896-ab35-68532bc1e32f
+
 ## 🛠️ Installation Guide
 
 ### 1. Install Python
@@ -24,7 +26,7 @@ Download and install Python from [python.org](https://www.python.org/downloads/)
 
 ### 4. Install PyTorch (Pick One)
 
-Open Command Prompt in the `C:\tmdb-advanced-userscripts` folder and run:
+Open a terminal in the `C:\tmdb-advanced-userscripts` folder and run:
 
 **For NVIDIA GPU users:**
 
@@ -56,15 +58,15 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
 pip install -r requirements.txt
 ```
 
-💡 For Mac Users: The process is similar, but note that the Windows path and `tmdb.cmd` won't work for you. Instead, navigate to `tmdb-advanced-userscripts/scripts` and run `python server.py`.
+💡 _For Mac Users: The above process is similar, but note that the Windows path and `tmdb.cmd` won't work for you. Instead, navigate to `tmdb-advanced-userscripts/scripts` and run `python server.py`._
 
 ### 6. Install Userscripts
 
 Click and install the following userscripts (you’ll need a userscript manager like [Tampermonkey](https://www.tampermonkey.net/)):
 
--   [client.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/client.user.js)
--   [findDuplicateImages.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/findDuplicateImages.user.js)
--   [toast.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/toast.user.js)
+-   [client.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/client.user.js)
+-   [findDuplicateImages.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/findDuplicateImages.user.js)
+-   [toast.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/toast.user.js)
 
 ---
 
@@ -84,10 +86,10 @@ Click and install the following userscripts (you’ll need a userscript manager 
 
 ## 📥 Update Guide
 
--   [Click here to download](https://github.com/Tetrax-10/tmdb-advanced-userscripts/archive/refs/heads/main.zip) latest source code.
+-   [Click here to download](https://github.com/Tetrax-10/tmdb-advanced-userscripts/archive/refs/heads/main.zip) the latest source code.
 -   Replace your `tmdb-advanced-userscripts` with the new one.
 
-💡 If you get any error after the update, do Step 5: Install Dependencies.
+💡 _If you get any error after the update, do [Step 5: Install Dependencies](#5-install-dependencies)._
 
 ## 💬 Support
 
