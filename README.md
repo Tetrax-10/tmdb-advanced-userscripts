@@ -2,11 +2,15 @@
 
 A collection of advanced userscripts for [themoviedb.org](https://www.themoviedb.org/) — useful for both casual users and moderators.
 
+<br>
+
 ## 🖼️ Find Duplicate Images
 
 Tired of going through hundreds of posters, backdrops, logos, or profile images to find duplicates? This tool makes it easy.
 
 https://github.com/user-attachments/assets/73802022-4221-4896-ab35-68532bc1e32f
+
+<br>
 
 ## 🛠️ Installation Guide
 
@@ -68,7 +72,7 @@ Click and install the following userscripts (you’ll need a userscript manager 
 -   [findDuplicateImages.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/findDuplicateImages.user.js)
 -   [toast.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/toast.user.js)
 
----
+<br>
 
 ## ✅ How to Use
 
@@ -82,7 +86,7 @@ Click and install the following userscripts (you’ll need a userscript manager 
     - 75–95 = recommended for best balance
     - Lower values may detect more but less accurate
 
----
+<br>
 
 ## 📥 Update Guide
 
@@ -100,6 +104,8 @@ Click on the respective userscripts you have installed, then click 'Update/Reins
 -   [toast.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/toast.user.js)
 
 💡 _If you get any error after the update, do [Step 5: Install Dependencies](#5-install-dependencies)._
+
+<br>
 
 ## 💬 Support
 
