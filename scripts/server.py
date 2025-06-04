@@ -5,6 +5,15 @@ import json
 from find_duplicate_images import find_duplicate_images
 
 
+def get_version():
+    """
+    Retrieve the current version of the server.
+    Returns (str): The version number of the server as a string.
+    """
+    SERVER_VERSION = "1"
+    return SERVER_VERSION
+
+
 async def handler(websocket):
     """
     Handle incoming messages from the browser/client over the WebSocket connection.
@@ -40,8 +49,16 @@ async def handler(websocket):
                 except Exception as e:
                     print(f"❌ Error in {action}: {e}")
 
+            # Handle non-JSON messages
             except json.JSONDecodeError:
-                print("❌ Received non-JSON message:", message)
+                try:
+                    # On version_request request, send the server version as version_result message
+                    if message == "version_request":
+                        await websocket.send(json.dumps({"action": "version_result", "data": get_version()}))
+                    else:
+                        print("❌ Received unexpected message:", message)
+                except Exception as e:
+                    print(f"❌ Error for {message}: {e}")
             except Exception as e:
                 print("❌ Error while handling message:", message, e)
     except Exception as e:

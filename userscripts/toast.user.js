@@ -65,7 +65,7 @@
     /**
      * Display a toast notification with the given message.
      * Clears any existing toast and shows the new one for 5 seconds.
-     * @param {string} message - The text to display inside the toast.
+     * @param {string} message - The text/html to display inside the toast.
      */
     unsafeWindow.TmdbAdvScp.toast = (message) => {
         try {
@@ -81,7 +81,7 @@
             // Create the toast element
             const toast = document.createElement("div")
             toast.className = "toast"
-            toast.textContent = message
+            toast.innerHTML = message
 
             container.appendChild(toast)
 

@@ -17,9 +17,16 @@
      */
     const WS_URL = "ws://localhost:8765"
 
-    // Create a namespace on the window to store state and functions
-    window.TmdbAdvScp = window.TmdbAdvScp || {}
-    const TmdbAdvScp = window.TmdbAdvScp
+    // Client's version
+    const CLIENT_VERSION = 1
+
+    // Create a namespace, which will be exposed to window object after version checking
+    const TmdbAdvScp = {
+        toast: null,
+        version: CLIENT_VERSION,
+        socketState: false,
+        socket: null,
+    }
 
     // Track whether the WebSocket is currently open
     TmdbAdvScp.socketState = false
@@ -36,6 +43,27 @@
     } catch (e) {
         console.error(`❌ [Client] Failed to create WebSocket connection to ${WS_URL}:`, e)
         return
+    }
+
+    /*
+     * Helper function to show a toast message if the toast handler is defined.
+     * @param {string} message - The text to display in the toast.
+     */
+    async function toast(message) {
+        while (!document.getElementById("toast-container")) {
+            await new Promise((resolve) => setTimeout(resolve, 100))
+        }
+
+        // No matter the version checking result, make toast function available
+        TmdbAdvScp.toast = TmdbAdvScp.toast || window.TmdbAdvScp?.toast
+
+        try {
+            if (typeof TmdbAdvScp.toast === "function") {
+                TmdbAdvScp.toast(message)
+            }
+        } catch (e) {
+            console.error("❌ [Client] Error calling toast function:", e)
+        }
     }
 
     /*
@@ -76,12 +104,31 @@
             const response = JSON.parse(rawData)
 
             // Handle known JSON actions
-            if (response.action === "toast" && typeof TmdbAdvScp.toast === "function") {
+            if (response.action === "toast") {
                 // Display a toast message in the page if a toast function is provided
                 try {
-                    TmdbAdvScp.toast(response.data)
+                    toast(response.data)
                 } catch (e) {
                     console.error("❌ [Client] Error executing toast function:", e)
+                }
+            } else if (response.action === "version_result") {
+                // Version checking
+                if (CLIENT_VERSION === parseInt(response.data)) {
+                    // Expose the TmdbAdvScp namespace to the window object
+                    window.TmdbAdvScp = window.TmdbAdvScp || {}
+                    window.TmdbAdvScp = { ...TmdbAdvScp, ...window.TmdbAdvScp } // don't change the merging order
+                } else if (CLIENT_VERSION > parseInt(response.data)) {
+                    toast(
+                        "⚠️ Server update available.<a href='https://github.com/Tetrax-10/tmdb-advanced-userscripts/archive/refs/heads/main.zip' style='color:#01b3e4;' target='_blank'> Click me to download update</a>."
+                    )
+                } else if (CLIENT_VERSION < parseInt(response.data)) {
+                    toast(
+                        "⚠️ Userscripts update available.<a href='https://github.com/Tetrax-10/tmdb-advanced-userscripts?tab=readme-ov-file#-update-guide' style='color:#01b3e4;' target='_blank'> Click me to open the update guide</a>."
+                    )
+                } else {
+                    toast(
+                        "❌ Couldn't determine the server's version.<a href='https://github.com/Tetrax-10/tmdb-advanced-userscripts/issues' style='color:#dc3545;' target='_blank'> Please open an issue on GitHub</a>."
+                    )
                 }
             } else {
                 // If the action is unrecognized, log a warning
@@ -97,6 +144,8 @@
                 case "connected":
                     // Initial handshake from server
                     console.log("✅ [Client] Connected to server")
+                    // Request server to send its version
+                    TmdbAdvScp.socket.send("version_request")
                     break
                 default:
                     // Log unexpected non-JSON messages
