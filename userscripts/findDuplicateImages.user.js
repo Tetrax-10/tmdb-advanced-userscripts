@@ -2,7 +2,7 @@
 // @name         TheMovieDB Find Duplicate Images
 // @namespace    https://github.com/Tetrax-10
 // @version      1.0
-// @description  Communicates with local Python server via WebSockets
+// @description  Handles client side logic for finding duplicate images
 // @author       Tetrax-10
 // @icon         https://www.themoviedb.org/favicon.ico
 // @match        *://*.themoviedb.org/tv/*/images/backdrops*
