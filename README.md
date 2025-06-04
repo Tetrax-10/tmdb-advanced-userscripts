@@ -86,8 +86,18 @@ Click and install the following userscripts (you’ll need a userscript manager 
 
 ## 📥 Update Guide
 
--   [Click here to download](https://github.com/Tetrax-10/tmdb-advanced-userscripts/archive/refs/heads/main.zip) the latest source code.
--   Replace your `tmdb-advanced-userscripts` with the new one.
+### Update server
+
+-   [Click here to download](https://github.com/Tetrax-10/tmdb-advanced-userscripts/archive/refs/heads/main.zip) the latest source code and extract it.
+-   Replace your `C:\tmdb-advanced-userscripts` with the new one.
+
+### Update userscripts
+
+Click on the respective userscripts you have installed, then click 'Update/Reinstall' button:
+
+-   [client.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/client.user.js)
+-   [findDuplicateImages.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/findDuplicateImages.user.js)
+-   [toast.user.js](https://raw.githubusercontent.com/Tetrax-10/tmdb-advanced-userscripts/refs/heads/main/userscripts/toast.user.js)
 
 💡 _If you get any error after the update, do [Step 5: Install Dependencies](#5-install-dependencies)._
 
