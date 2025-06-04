@@ -1,6 +1,6 @@
 # TMDb Advanced Userscripts
 
-A collection of advanced userscripts for [themoviedb.org](https://www.themoviedb.org/) — useful for both casual users and moderators.
+A collection of advanced userscripts for [themoviedb.org](https://www.themoviedb.org/).
 
 <br>
 
@@ -25,7 +25,7 @@ Download and install Python from [python.org](https://www.python.org/downloads/)
 
 ### 3. Setup Files
 
--   Copy the `tmdb.cmd` file (from the extracted folder) anywhere you like — this will be your launcher.
+-   Copy the `tmdb.cmd` file to anywhere you like — this will be your launcher.
 -   Copy the entire `tmdb-advanced-userscripts` folder to `C:\` (so scripts folder is available in `C:\tmdb-advanced-userscripts\scripts`).
 
 ### 4. Install PyTorch (Pick One)
@@ -84,7 +84,9 @@ Click and install the following userscripts (you’ll need a userscript manager 
     - Default value is set for each image type, which already works best
     - 100 = exact matches only
     - 75–95 = recommended for best balance
-    - Lower values may detect more but less accurate
+    - Lower than 75 values may detect more but less accurate (not recommended)
+
+💡*Tip: Setting threshold to `75` to `80` in poster page will detect official posters as duplicates thus remaining posters are mostly fan-art, which can be removed.*
 
 <br>
 
