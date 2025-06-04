@@ -88,6 +88,42 @@ Click and install the following userscripts (you’ll need a userscript manager 
 
 <br>
 
+<details>
+<summary><h2>🧠 How It Works</h2></summary>
+
+This project uses a client-server architecture to detect duplicate images on a webpage.
+
+### 🔧 Client (Userscript in Browser)
+
+The client-side script mainly handles the UI and communication:
+
+-   Collects all image URLs on the current page.
+-   Sorts image cards in the UI.
+-   Shows toast notifications in the browser.
+-   Sends image URLs to the server via WebSocket when the **"Find Duplicates"** button is clicked.
+
+> Note: Userscripts running in a browser can't access local files or use hardware-accelerated AI models, so the heavy lifting is done by the server.
+
+### 🖥️ Server (Backend)
+
+The server performs the core image analysis:
+
+-   Downloads and caches the images.
+-   Uses a **Convolutional Neural Network (CNN)** to detect visually similar images (posters, backdrops, profile images).
+-   Uses **Perceptual Hashing (PHash)** for logos which require precise duplicate detection.
+-   Compares images based on a **similarity threshold** — higher thresholds mean stricter matching.
+-   Sends back the results in a format the client can easily understand.
+
+### 📁 Script Breakdown
+
+-   `client.user.js`: Handles WebSocket communication and integrates everything on the page.
+-   `findDuplicateImages.user.js`: Handles logic specific to sorting and highlighting duplicate images.
+-   `toast.user.js`: Displays toast messages. This script is modular and can be reused independently, even without the server or other scripts.
+
+</details>
+
+<br>
+
 ## 📥 Update Guide
 
 ### Update server
