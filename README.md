@@ -102,14 +102,14 @@ The client-side script mainly handles the UI and communication:
 -   Shows toast notifications in the browser.
 -   Sends image URLs to the server via WebSocket when the **"Find Duplicates"** button is clicked.
 
-> Note: Userscripts running in a browser can't access local files or use hardware-accelerated AI models, so the heavy lifting is done by the server.
+> Userscripts running in a browser can't access local files or use hardware-accelerated AI models, so the heavy lifting is done by the server.
 
 ### 🖥️ Server (Backend)
 
 The server performs the core image analysis:
 
 -   Downloads and caches the images.
--   Uses a **Convolutional Neural Network (CNN)** to detect visually similar images (posters, backdrops, profile images).
+-   Uses a **Convolutional Neural Network (CNN)** provided by [imagededup](https://github.com/idealo/imagededup) to detect visually similar images (posters, backdrops, profile images).
 -   Uses **Perceptual Hashing (PHash)** for logos which require precise duplicate detection.
 -   Compares images based on a **similarity threshold** — higher thresholds mean stricter matching.
 -   Sends back the results in a format the client can easily understand.
