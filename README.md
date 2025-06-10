@@ -16,7 +16,7 @@ https://github.com/user-attachments/assets/73802022-4221-4896-ab35-68532bc1e32f
 
 ### 1. Install Python
 
-Download and install Python from [python.org](https://www.python.org/downloads/).
+Download and install Python 3.11.9 from [python.org](https://www.python.org/downloads/release/python-3119/) (later versions above this may not work properly).
 
 ### 2. Download this Project
 
